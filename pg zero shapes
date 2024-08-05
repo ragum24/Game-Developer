@@ -1,0 +1,20 @@
+import pgzrun, random
+WIDTH=500
+HEIGHT=500
+
+def draw():
+  screen.fill("light blue") 
+ 
+  screen.draw.filled_circle((206,50),50,(random.randint(0,255), random.randint(0,255),random.randint(0,255))) 
+
+  screen.draw.line((100,100),(330,100),("dark green"))
+
+  screen.draw.line((205,100),(205,300),("orange"))
+  screen.draw.line((205,300),(155,380),("magenta"))
+  screen.draw.line((205,300),(255,380),("blue"))
+  screen.draw.text("Freddy",(220,150),fontsize=40,color="forest green")
+  
+  
+
+
+pgzrun.go()
