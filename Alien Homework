@@ -1,0 +1,27 @@
+import pgzrun
+HEIGHT=200
+WIDTH=500
+TITLE="Shoot Allie!"
+allie=Actor("alien.png")
+allie.pos=100,100
+
+
+
+def draw():
+    screen.clear()
+    screen.blit("sun..jpg",(0,0))
+    allie.draw()
+
+def update():
+    allie.left+=5
+    if allie.left>WIDTH:
+        allie.right=0
+
+def on_mouse_down(pos):
+    if allie.collidepoint(pos):
+        sounds.eep.play()
+        print("Why You Bully Me?")
+    else:
+        print("You Missed Me!...You're going to hit me now :(")
+
+pgzrun.go()
