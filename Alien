@@ -1,0 +1,31 @@
+import pgzrun,random
+WIDTH=500
+HEIGHT=500
+TITLE="Best Click!"
+msg=""
+count=0
+allie=Actor("alien.png")
+allie.pos=(100,170)
+scre=0
+
+def draw():
+    screen.clear()
+    screen.blit("space.jpg",(0,0))
+    allie.draw() 
+    screen.draw.text(msg,(300,50))
+    obj=Rect((20,15),(100,70))
+    screen.draw.rect(obj,"white")
+    screen.draw.text(str(scre),(65,47))
+def on_mouse_down(pos):
+    global count,msg,scre
+    if allie.collidepoint(pos):
+       count+=1
+       allie.pos=random.randint(50,410),random.randint(50,410)
+       msg="Good Click."
+       scre+=1
+       if count > 5:
+           msg="Best Click!"
+    else:
+        msg="Where Did The Click Go?"
+        count=0
+pgzrun.go()
