@@ -1,0 +1,27 @@
+l=["hi",100,81,"mrs sirin.com.au",1821,5]
+print(len(l))
+print(l[4])
+
+#2D List
+
+list=[[1,2,4],[8,3,8],[1,23,76,4]]
+
+rows=len(list)
+print(rows)
+
+columns=len(list[0])
+print(columns)
+
+#Accessing Elements in 2D List
+
+print(list[1][2])
+
+#Looping Over 2D List
+
+for i in list:
+    print(i)
+
+for i in range(rows):
+    for j in range(columns):
+        print(list[i][j],end=" ")
+    print()
