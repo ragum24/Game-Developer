@@ -1,0 +1,34 @@
+import pgzrun
+HEIGHT=500
+WIDTH=500
+TITLE="Tag!"
+allie=Actor("alien.png")
+allie.pos=100,300
+squash=Actor("cat.png")
+squash.pos=100,200
+
+def draw():
+    screen.clear()
+    screen.blit("space.jpg",(0,0))
+    allie.draw()
+    squash.draw()
+
+def update():
+    allie.left+=5
+    if allie.left>WIDTH:
+        allie.right=0 
+    squash.right+=5
+    if squash.right>WIDTH:
+        squash.left=0
+
+def on_mouse_down(pos):
+    if allie.collidepoint(pos):
+        sounds.eep.play()
+        print("You Got Me! Squash is it now!")
+    if squash.collidepoint(pos):
+        sounds.eep.play()
+        print("You're it Allie!")
+
+
+pgzrun.go()
+
