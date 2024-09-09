@@ -1,0 +1,19 @@
+t=("me_eating_a_icecream",)
+print(type(t))
+#Type Casting
+
+l=[1,2,3,"d",5,3]
+t1=tuple(l)
+print(t1)
+
+print(t1[3])
+
+#t1[3]=10 <-- we can't do this code = tuples are immutable
+
+print(t1+t1) 
+
+#Packing And Unpacking
+
+adress=(85,"hi-building","hi-5 street","Goat Town","45679")
+d0,s0,ht,gt,pc=adress
+print(gt)
