@@ -1,0 +1,45 @@
+import pgzrun,random
+WIDTH=500
+HEIGHT=500
+TITLE=" The Buzzy,Fuzzy,Funny, Bee Game:"
+game_over=False
+count=0
+hi_score=0
+
+flower=Actor("bee.png")
+flower.pos=(WIDTH/2,HEIGHT/2)
+Buzziy=Actor("flower.png")
+Buzziy.pos=(250,100)
+
+def draw():
+    screen.blit("flbg.png",(0,0))
+    flower.draw()
+    Buzziy.draw()
+    screen.draw.text("Points- "+str(count),color="gold",center=(50,50))
+    if game_over:
+      screen.fill("gold") 
+      screen.draw.text("Game Over! Did You Do Your Best?  score:"+str(count),color="black",center=(250,250))
+
+def update():
+   global count
+   if keyboard.left:
+      Buzziy.x-=2
+   if keyboard.right:
+      Buzziy.x+=2
+   if keyboard.up:
+      Buzziy.y-=2
+   if keyboard.down:
+      Buzziy.y+=2
+   if Buzziy.colliderect(flower):
+      count+=1
+      flower.pos=random.randint(50,450),random.randint(50,450)
+      
+def time_is_up():
+   global game_over
+   game_over=True
+
+clock.schedule(time_is_up,20)
+
+
+    
+pgzrun.go()
