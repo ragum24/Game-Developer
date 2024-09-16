@@ -1,0 +1,7 @@
+competition1=("Science Group",4,"17/11/2024","N.E.P.S","silver")
+competition2=("Maths Group",4,"17/11/2024","Hume Anglican","gold")
+competition3=("English Group",4,"17/11/2024","Wayi School","bronze")
+group1,size1,date1,venue1,medal1=competition1
+group2,size2,date2,venue2,medal2=competition2
+group3,size3,date3,venue3,medal3=competition3
+print(medal3)
