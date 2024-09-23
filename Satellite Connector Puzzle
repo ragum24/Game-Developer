@@ -1,0 +1,62 @@
+import pgzrun,random
+from time import time
+WIDTH=500
+HEIGHT=500
+tot=8
+satilites=[]
+lines=[]
+start_time=0
+totime=0
+currentsat=0
+
+def create_satilites():
+    global start_time
+    for i in range(tot):
+        sat=Actor("satilite.png")
+        sat.pos=random.randint(50,450),random.randint(50,450)
+        satilites.append(sat)
+    start_time=time()
+
+def draw():
+    global totime
+    screen.blit("empty_space",(0,0))
+    sumvarible=1
+    for i in satilites:
+        i.draw()
+        screen.draw.text(str(sumvarible),(i.pos[0],i.pos[1]+20))
+        sumvarible+=1
+    if currentsat < tot:
+            totime=time()-start_time
+            screen.draw.text(str(round(totime)),(20,10),fontsize=20)
+    else:
+            screen.draw.text(str(round(totime)),(20,10),fontsize=20)
+    
+    for i in lines:
+         screen.draw.line(i[0],i[1],"white")
+
+def update():
+     pass
+def on_mouse_down(pos):
+    global currentsat,satilites,lines
+    if currentsat < tot:
+        if satilites[currentsat].collidepoint(pos):
+             if currentsat:
+              lines.append((satilites[currentsat-1].pos,satilites[currentsat].pos))
+             currentsat+=1
+        else:
+             lines=[]
+             currentsat=0
+        
+    
+    
+     
+create_satilites()
+
+
+
+
+
+
+
+
+pgzrun.go()
