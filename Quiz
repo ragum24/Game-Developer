@@ -1,0 +1,27 @@
+import pgzrun
+WIDTH=700
+HEIGHT=700
+TITLE="Quiz Mastery!"
+scroller_box=Rect(0,0,WIDTH,80)
+questionbox=Rect(20,100,450,150)
+answerbox1=Rect(20,270,200,150)
+answerbox2=Rect(240,270,200,150)
+answerbox3=Rect(20,440,200,150)
+answerbox4=Rect(240,440,200,150)
+timerbox=Rect(500,100,150,150)
+skipbox=Rect(500,270,150,320)
+ansboxes=[answerbox1,answerbox2,answerbox3,answerbox4]
+
+def draw():
+    screen.clear()
+    screen.fill("Sky blue")
+    screen.draw.filled_rect(scroller_box,"Sky blue")
+    screen.draw.filled_rect(questionbox,"Dark blue")
+    screen.draw.filled_rect(timerbox,"Red")
+    screen.draw.filled_rect(skipbox,"Green")
+    for i in ansboxes:
+        screen.draw.filled_rect(i,"Orange")
+
+
+
+pgzrun.go()
