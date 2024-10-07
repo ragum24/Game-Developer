@@ -1,8 +1,8 @@
 import pgzrun
 WIDTH=700
 HEIGHT=700
-TITLE="Quiz Mastery!"
-scroller_box=Rect(0,0,WIDTH,80)
+TITLE="Mastery Quiz!"
+scroller_box=Rect(0,0,WIDTH,70)
 questionbox=Rect(20,100,450,150)
 answerbox1=Rect(20,270,200,150)
 answerbox2=Rect(240,270,200,150)
@@ -11,6 +11,10 @@ answerbox4=Rect(240,440,200,150)
 timerbox=Rect(500,100,150,150)
 skipbox=Rect(500,270,150,320)
 ansboxes=[answerbox1,answerbox2,answerbox3,answerbox4]
+currq=0
+totq=0
+totime=10
+questions=[]
 
 def draw():
     screen.clear()
@@ -21,7 +25,25 @@ def draw():
     screen.draw.filled_rect(skipbox,"Green")
     for i in ansboxes:
         screen.draw.filled_rect(i,"Orange")
+    msg=f'Welcome to the Mastery Quiz! Q:{currq} of {totq}'
+    screen.draw.textbox(msg,scroller_box,color="black")
+    screen.draw.textbox(str(totime),timerbox,color='white')
+    screen.draw.textbox("SKIP THIS Q",skipbox,color="white")
 
+
+def update():
+    scroller_box.x-=2
+    if scroller_box.right<0:
+        scroller_box.x=700
+
+def read_q():
+    global questions,totq
+    with open("questions.txt","r") as file:
+        for i in file:
+            questions.append(i)
+            totq+=1
+read_q()
+print(questions)
 
 
 pgzrun.go()
